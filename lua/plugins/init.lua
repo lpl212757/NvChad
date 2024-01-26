@@ -1,6 +1,91 @@
 -- All plugins have lazy=true by default,to load a plugin on startup just lazy=false
 -- List of all default plugins & their definitions
 local default_plugins = {
+  -- Start user plugins
+  {
+    "stevearc/dressing.nvim",
+    lazy = false,
+    config = function()
+      require("dressing").setup {}
+    end,
+  },
+  {
+    "nvim-pack/nvim-spectre",
+    event = { "BufEnter" },
+    config = function()
+      require("spectre").setup()
+    end,
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    event = { "InsertEnter", "LspAttach" },
+    fix_pairs = true,
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup {
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      }
+    end,
+  },
+  {
+    "tpope/vim-surround",
+    event = "BufEnter",
+  },
+  { "neo4j-contrib/cypher-vim-syntax", event = "BufEnter" },
+  {
+    "echasnovski/mini.nvim",
+    event = "BufEnter",
+    config = function()
+      require("mini.cursorword").setup {}
+    end,
+  },
+
+  {
+    "f-person/git-blame.nvim",
+    event = "BufEnter",
+  },
+
+  {
+    "ahmedkhalf/project.nvim",
+    lazy = false,
+    config = function()
+      require("project_nvim").setup {}
+    end,
+  },
+
+  {
+    "akinsho/toggleterm.nvim",
+    lazy = false,
+    config = function()
+      require("toggleterm").setup {
+        open_mapping = [[<c-\>]],
+        direction = "float",
+        shade_terminals = true,
+      }
+    end,
+  },
+  -- End user plugins
+
+  { "terryma/vim-multiple-cursors" },
+
+  { "kdheepak/lazygit.nvim", lazy = false },
+
+  {
+    "lpl212757/dashboard-nvim",
+    event = "VimEnter",
+    config = function()
+      require "plugins.configs.dashboard"
+    end,
+    dependencies = { { "nvim-tree/nvim-web-devicons" } },
+  },
 
   "nvim-lua/plenary.nvim",
 
