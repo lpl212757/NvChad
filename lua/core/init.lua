@@ -5,6 +5,16 @@ local g = vim.g
 g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 g.toggle_theme_icon = "   "
 
+-- User config
+g.gitblame_enabled = false
+g.gitblame_date_format = '%r'
+
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = true,
+  float = { border = "single" },
+})
+-- End user config
 -------------------------------------- options ------------------------------------------
 opt.laststatus = 3 -- global statusline
 opt.showmode = false
