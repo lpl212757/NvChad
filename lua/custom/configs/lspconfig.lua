@@ -30,3 +30,9 @@ lspconfig.omnisharp.setup {
 }
 
 lspconfig.pylsp.setup({})
+
+lspconfig.tsserver.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  single_file_support = true
+})
