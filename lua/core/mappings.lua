@@ -183,12 +183,7 @@ M.lspconfig = {
       "LSP hover",
     },
 
-    ["gi"] = {
-      function()
-        vim.lsp.buf.implementation()
-      end,
-      "LSP implementation",
-    },
+    ["gi"] = { function() require("telescope.builtin").lsp_implementations() end, "lsp implementation", bufopts },
 
     ["<leader>ls"] = {
       function()
@@ -218,12 +213,8 @@ M.lspconfig = {
       "LSP code action",
     },
 
-    ["gr"] = {
-      function()
-        vim.lsp.buf.references()
-      end,
-      "LSP references",
-    },
+    ["gr"] = { function() require("telescope.builtin").lsp_references() end, "lsp references", bufopts},
+    ["go"] = { function() require("telescope.builtin").lsp_document_symbols() end, "lsp document symbols", bufopts},
 
     ["<leader>f"] = {
       function()
