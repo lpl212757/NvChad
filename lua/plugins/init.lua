@@ -1,22 +1,6 @@
 -- All plugins have lazy=true by default,to load a plugin on startup just lazy=false
 -- List of all default plugins & their definitions
 local default_plugins = {
-  -- {
-  --   dir = "D:\\Coding\\sonarlint.nvim",
-  --   event = { "LspAttach" },
-  -- },
-  -- {
-  --   "mfussenegger/nvim-jdtls",
-  --   event = { "LspAttach" },
-  -- },
-  --
-  {
-    "stevearc/dressing.nvim",
-    lazy = false,
-    config = function()
-      require("dressing").setup {}
-    end,
-  },
   {
     "nvim-pack/nvim-spectre",
     event = { "BufEnter" },
